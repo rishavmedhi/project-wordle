@@ -196,6 +196,33 @@ h1 {
   border: 0;
 }
 
+.keyboard .keyRow .key{
+  display: inline-block;
+  padding: 7px 12px;
+  font-weight: 600;
+  margin: 10px 2px;
+  background-color: #E6E6E6;
+  border-radius: 5px;
+}
+
+.keyboard .keyRow .key.correct{
+  background: var(--color-success);
+  border-color: var(--color-success);
+  color: white;
+}
+
+.keyboard .keyRow .key.incorrect{
+  background: var(--color-gray-300);
+  border-color: var(--color-gray-300);
+  color: white;
+}
+
+.keyboard .keyRow .key.misplaced{
+  background: var(--color-warning);
+  border-color: var(--color-warning);
+  color: white;
+}
+
 /*
   Modal styles
 
