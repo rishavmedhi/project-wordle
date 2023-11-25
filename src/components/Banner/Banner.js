@@ -16,7 +16,7 @@ function Banner({ gameEndStatus, attemptCount, answer, restartGame }) {
       {statusMap[gameEndStatus] === "happy" ? (
         <p>
           <strong>Congratulations!</strong> Got it in
-          <strong>{` ${attemptCount} guesses`}</strong>.
+          <strong>{` ${attemptCount} ${attemptCount>1?'guesses':'guess'}`}</strong>.
           <a href="/" onClick={triggerRestart} className="restart">
             Restart
           </a>
