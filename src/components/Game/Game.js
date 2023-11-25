@@ -10,14 +10,15 @@ import Banner from "../Banner/Banner";
 import VisualKeyboard from "../VisualKeyboard";
 
 // Pick a random word on every pageload.
-const answer = sample(WORDS);
+// const answer = sample(WORDS);
 // To make debugging easier, we'll log the solution in the console.
-console.info({ answer });
+// console.info({ answer });
 
 function Game() {
   const [userGuesses, setUserGuesses] = useState([]);
   const [gameStatus, setGameStatus] = useState("running");
   const [keyboardMap, setkeyboardMap] = useState({});
+  const [answer, setAnswer] = useState(sample(WORDS));
 
   function updateUserGuesses(newGuess) {
     const newUserGuesses = [
@@ -47,6 +48,14 @@ function Game() {
     }
     setkeyboardMap(newKeyboardMap);
   }
+
+  function restartGame(){
+    setUserGuesses([]);
+    setGameStatus("running");
+    setkeyboardMap({});
+    setAnswer(sample(WORDS));
+  }
+
   return (
     <>
       <GuessResults userGuesses={userGuesses} answer={answer} />
@@ -55,6 +64,7 @@ function Game() {
           gameEndStatus={gameStatus}
           attemptCount={userGuesses.length}
           answer={answer}
+          restartGame={restartGame}
         />
       )}
       <GuessInput

@@ -184,6 +184,10 @@ h1 {
   background: var(--color-error);
   color: white;
 }
+.banner .restart{
+  color: white;
+  margin-left: 10px;
+}
 
 .visually-hidden {
   position: absolute;

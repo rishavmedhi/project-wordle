@@ -5,17 +5,28 @@ const statusMap = {
   loss: "sad",
 };
 
-function Banner({ gameEndStatus, attemptCount, answer }) {
+function Banner({ gameEndStatus, attemptCount, answer, restartGame }) {
+  function triggerRestart(e) {
+    e.preventDefault();
+    restartGame();
+  }
+
   return (
     <div className={`${statusMap[gameEndStatus]} banner`}>
       {statusMap[gameEndStatus] === "happy" ? (
         <p>
           <strong>Congratulations!</strong> Got it in
           <strong>{` ${attemptCount} guesses`}</strong>.
+          <a href="/" onClick={triggerRestart} className="restart">
+            Restart
+          </a>
         </p>
       ) : (
         <p>
           Sorry, the correct answer is <strong>{answer}</strong>.
+          <a href="/" onClick={triggerRestart} className="restart">
+            Restart
+          </a>
         </p>
       )}
     </div>
